@@ -1,0 +1,5 @@
+services:
+  Heimseiten\ContaoCtaAtTheSideBundle\Listener\HooksListener:
+    tags:
+      - { name: contao.hook, hook: outputFrontendTemplate, method: onOutputFrontendTemplate, priority: 0 }
+      

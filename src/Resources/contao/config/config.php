@@ -6,12 +6,12 @@ if (TL_MODE == 'FE') {
 
 function generateHTML($cta_image, $cta_text, $cta_link)
 {
-    $html_strukutur .= '{{link_open::' . $cta_link->id . '}}';   
+    $html_strukutur .= '<a href="' . $cta_link . '">';
     
     if (generateImageTag($cta_image)) { $html_strukutur .= generateImageTag($cta_image); }
     if ($cta_text) { $html_strukutur .= '<p>' . $cta_text . '</p>'; }
     
-    $html_strukutur .= '{{link_close}}';
+    $html_strukutur .= '</a>';
 
     return $html_strukutur;
 }

@@ -83,26 +83,38 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
     'cta_1_link' => [
         'reference' => &$GLOBALS['TL_LANG']['tl_page'],
         'eval' => array( 'tl_class' => 'w50' ),
-        'inputType' => 'pageTree', 
-        'sql'       => "blob NULL" 
+        'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
     ],
     'cta_2_link' => [
         'reference' => &$GLOBALS['TL_LANG']['tl_page'],
         'eval' => array( 'tl_class' => 'w50' ),
-        'inputType' => 'pageTree', 
-        'sql'       => "blob NULL" 
+        'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
     ],
     'cta_3_link' => [
         'reference' => &$GLOBALS['TL_LANG']['tl_page'],
         'eval' => array( 'tl_class' => 'w50' ),
-        'inputType' => 'pageTree', 
-        'sql'       => "blob NULL" 
+        'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
     ],
     'cta_4_link' => [
         'reference' => &$GLOBALS['TL_LANG']['tl_page'],
         'eval' => array( 'tl_class' => 'w50' ),
-        'inputType' => 'pageTree', 
-        'sql'       => "blob NULL" 
+        'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
     ],
     
 ];

@@ -15,7 +15,7 @@ class HooksListener
 
     private function processBuffer(string $buffer, $templateName): string
     {
-        if (TL_MODE == 'FE' && 'fe_page' === $templateName) 
+        if (TL_MODE == 'FE') 
         {
             global $objPage;
 

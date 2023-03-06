@@ -1,8 +1,6 @@
 <?php
 
-if (TL_MODE == 'FE') {
-    $GLOBALS['TL_CSS'][] = 'bundles/heimseitencontaoctaattheside/cta-at-the-side.scss|static';
-}
+$GLOBALS['TL_CSS'][] = 'bundles/heimseitencontaoctaattheside/cta-at-the-side.scss|static';
 
 function generateHTML($cta_image, $cta_text, $cta_link)
 {

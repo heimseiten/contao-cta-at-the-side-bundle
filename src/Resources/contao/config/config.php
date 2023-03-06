@@ -1,5 +1,7 @@
 <?php
 
+use Contao\FilesModel;
+
 $GLOBALS['TL_CSS'][] = 'bundles/heimseitencontaoctaattheside/cta-at-the-side.scss|static';
 
 function generateHTML($cta_image, $cta_text, $cta_link)
@@ -18,6 +20,6 @@ function generateImageTag($cta_image)
 {
     if ($cta_image) 
     { 
-        return '<img src="' . \FilesModel::findByUuid($cta_image)->path . '">'; 
+        return '<img src="'.FilesModel::findByUuid($cta_image)->path . '">'; 
     }
 }

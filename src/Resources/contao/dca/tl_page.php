@@ -33,25 +33,25 @@ $GLOBALS['TL_DCA']['tl_page']['fields'] += [
     'cta_1' => [
         'reference' => &$GLOBALS['TL_LANG']['tl_page'],
         'inputType' => 'fileTree',
-        'eval' => array( 'fieldType' => 'radio', 'filesOnly' => true, 'extensions' => \Config::get('validImageTypes'), 'tl_class' => 'w50 clr' ),
+        'eval' => array( 'fieldType' => 'radio', 'filesOnly' => true, 'extensions' => Config::get('validImageTypes'), 'tl_class' => 'w50 clr' ),
         'sql' => "blob NULL"
     ],
     'cta_2' => [
         'reference' => &$GLOBALS['TL_LANG']['tl_page'],
         'inputType' => 'fileTree',
-        'eval' => array( 'fieldType' => 'radio', 'filesOnly' => true, 'extensions' => \Config::get('validImageTypes'), 'tl_class' => 'w50 clr' ),
+        'eval' => array( 'fieldType' => 'radio', 'filesOnly' => true, 'extensions' => Config::get('validImageTypes'), 'tl_class' => 'w50 clr' ),
         'sql' => "blob NULL"
     ],   
     'cta_3' => [
         'reference' => &$GLOBALS['TL_LANG']['tl_page'],
         'inputType' => 'fileTree',
-        'eval' => array( 'fieldType' => 'radio', 'filesOnly' => true, 'extensions' => \Config::get('validImageTypes'), 'tl_class' => 'w50 clr' ),
+        'eval' => array( 'fieldType' => 'radio', 'filesOnly' => true, 'extensions' => Config::get('validImageTypes'), 'tl_class' => 'w50 clr' ),
         'sql' => "blob NULL"
     ],
     'cta_4' => [
         'reference' => &$GLOBALS['TL_LANG']['tl_page'],
         'inputType' => 'fileTree',
-        'eval' => array( 'fieldType' => 'radio', 'filesOnly' => true, 'extensions' => \Config::get('validImageTypes'), 'tl_class' => 'w50 clr' ),
+        'eval' => array( 'fieldType' => 'radio', 'filesOnly' => true, 'extensions' => Config::get('validImageTypes'), 'tl_class' => 'w50 clr' ),
         'sql' => "blob NULL"
     ],
 

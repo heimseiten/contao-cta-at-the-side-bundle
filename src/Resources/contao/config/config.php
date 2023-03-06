@@ -20,6 +20,6 @@ function generateImageTag($cta_image)
 {
     if ($cta_image) 
     { 
-        return '<img src="'.FilesModel::findByUuid($cta_image)->path . '">'; 
+        return '<img src="' . FilesModel::findByUuid($cta_image)->path . '">'; 
     }
 }

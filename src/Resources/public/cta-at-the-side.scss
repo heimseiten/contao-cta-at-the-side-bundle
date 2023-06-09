@@ -6,18 +6,19 @@ html {
         --cta_image_height: 40px; 
     }
 }    
-.cta_wrapper {
-    .inside { position: fixed; top: 40vh; z-index: 9; 
-        &.left { left: 0; } 
-        &.right { right: 0; } 
-        a { display: block;
-            img { 
-                width: var(--cta_image_width); 
-                height: var(--cta_image_height); 
-                object-fit: contain; 
-                object-position: center; 
-                margin: auto;
-            }
+.cta_wrapper > .inside { 
+    position: fixed; 
+    top: 40vh; 
+    z-index: 9; 
+    &.left { left: 0; } 
+    &.right { right: 0; } 
+    a { display: block;
+        img { 
+            width: var(--cta_image_width); 
+            height: var(--cta_image_height); 
+            object-fit: contain; 
+            object-position: center; 
+            margin: auto;
         }
     }
 }

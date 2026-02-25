@@ -8,7 +8,7 @@ $GLOBALS['TL_CSS'][] = 'bundles/heimseitencontaoctaattheside/cta-at-the-side.scs
 function generateHTML($cta_image, $cta_text, $cta_link)
 {
     $html_strukutur = '';
-    $html_strukutur .= '<div class="link_wrapper"><div class="inside"><a href="' . $cta_link . '">';
+    $html_strukutur .= '<div class="link_wrapper"><div class="inside"><a href="' . StringUtil::specialchars($cta_link) . '">';
 
     $imgTag = generateImageTag($cta_image);
     if ($imgTag) {
@@ -16,7 +16,7 @@ function generateHTML($cta_image, $cta_text, $cta_link)
     }
 
     if ($cta_text) {
-        $html_strukutur .= '<p>' . $cta_text . '</p>';
+        $html_strukutur .= '<p>' . StringUtil::specialchars($cta_text) . '</p>';
     }
 
     $html_strukutur .= '</a></div></div>';
@@ -26,25 +26,38 @@ function generateHTML($cta_image, $cta_text, $cta_link)
 
 function generateImageTag($cta_image)
 {
-    if ($cta_image) {
-        $file = FilesModel::findByUuid($cta_image);
-        if ($file === null) {
-            return '';
-        }
-
-        $src = StringUtil::specialchars($file->path);
-
-        // Take alt text ONLY from file meta data (language-aware); otherwise keep alt=""
-        $meta = StringUtil::deserialize($file->meta, true);
-        $lang = $GLOBALS['TL_LANGUAGE'] ?? 'en';
-
-        $alt = '';
-        if (is_array($meta) && isset($meta[$lang]) && is_array($meta[$lang]) && array_key_exists('alt', $meta[$lang])) {
-            $alt = trim((string) $meta[$lang]['alt']);
-        }
-
-        return '<img src="' . $src . '" alt="' . StringUtil::specialchars($alt) . '">';
+    if (!$cta_image) {
+        return '';
     }
 
-    return '';
+    $file = FilesModel::findByUuid($cta_image);
+    if ($file === null) {
+        return '';
+    }
+
+    $src = StringUtil::specialchars($file->path);
+
+    $meta = StringUtil::deserialize($file->meta, true);
+
+    $lang = $GLOBALS['TL_LANGUAGE'] ?? 'en';
+
+    $langNorm = str_replace('-', '_', $lang);
+    $root     = substr($langNorm, 0, 2);
+
+    $candidates = array_unique([$lang, $langNorm, $root]);
+
+    $alt = '';
+
+    if (is_array($meta)) {
+        foreach ($candidates as $cand) {
+            if (isset($meta[$cand]) && is_array($meta[$cand]) && array_key_exists('alt', $meta[$cand])) {
+                $alt = trim((string) $meta[$cand]['alt']);
+                if ($alt !== '') {
+                    break;
+                }
+            }
+        }
+    }
+
+    return '<img src="' . $src . '" alt="' . StringUtil::specialchars($alt) . '">';
 }
